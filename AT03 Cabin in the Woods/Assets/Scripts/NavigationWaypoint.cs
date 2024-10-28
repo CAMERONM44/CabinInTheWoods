@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class NavigationWaypoint : InteractableObject
 {
-    [Tooltip("This is the audio clip that will play when notes are opened/closed.")]
+    [Tooltip("This is the audio clip that will play when the player teleports.")]
     [SerializeField] private AudioClip interactClip;
 
     private ParticleSystem particles;
