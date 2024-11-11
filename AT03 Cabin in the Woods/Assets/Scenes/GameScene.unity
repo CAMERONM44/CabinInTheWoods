@@ -5036,6 +5036,81 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &182972872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182972873}
+  - component: {fileID: 182972875}
+  - component: {fileID: 182972874}
+  m_Layer: 5
+  m_Name: NarrationIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &182972873
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182972872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 605121419}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -842, y: -433}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &182972874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182972872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9eecb3fd795e5074d885638bd203a68c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &182972875
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182972872}
+  m_CullTransparentMesh: 1
 --- !u!1 &198662672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,6 +5473,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 0}
+  narrationIcon: {fileID: 0}
 --- !u!114 &253323059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,6 +6413,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 8300000, guid: bb9d05a5a992b4344af289013b22eae3, type: 3}
+  narrationIcon: {fileID: 182972874}
 --- !u!114 &409547740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6746,6 +6825,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 895284357}
+  - {fileID: 182972873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6927,6 +7007,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 0}
+  narrationIcon: {fileID: 0}
 --- !u!114 &622106739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7015,7 +7097,7 @@ Transform:
   m_GameObject: {fileID: 657010296}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -264.002, y: 151.81, z: -225.274}
+  m_LocalPosition: {x: -264.039, y: 151.81, z: -225.2678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12769,6 +12851,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 0}
+  narrationIcon: {fileID: 0}
 --- !u!114 &1298135399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23227,6 +23311,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 0}
+  narrationIcon: {fileID: 0}
 --- !u!114 &1781133270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23715,8 +23801,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 804561598}
   - {fileID: 2102217367}
+  - {fileID: 804561598}
   - {fileID: 395127904}
   - {fileID: 397129525}
   - {fileID: 1308648065}
@@ -28579,8 +28665,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102217366}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.187, y: -2.459, z: 9.672}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.1870117, y: -2.4589996, z: 9.671997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28719,7 +28805,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: -1.27, z: 0}
 --- !u!1 &2124890263
 GameObject:
   m_ObjectHideFlags: 0
@@ -28894,6 +28980,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 82988c351b943224282d0648c3833509, type: 3}
   background: {fileID: 21300000, guid: a631188bb7cda5445babd98416b1b02f, type: 3}
   interactClip: {fileID: 8300000, guid: adfbaf5049dd9c54c853b5318e540ad0, type: 3}
+  narrationClip: {fileID: 0}
+  narrationIcon: {fileID: 0}
 --- !u!114 &2124890268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28986,7 +29074,7 @@ Transform:
   m_GameObject: {fileID: 2139198547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.037, y: 0, z: -0.007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

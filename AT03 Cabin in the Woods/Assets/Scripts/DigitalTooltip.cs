@@ -14,10 +14,16 @@ public class DigitalTooltip : InteractableObject
     [SerializeField] private Sprite background;
     [Tooltip("This is the audio clip that will play when notes are opened/closed.")]
     [SerializeField] private AudioClip interactClip;
+    [Tooltip("This is the audio clip that will play narration.")]
+    [SerializeField] private AudioClip narrationClip;
+
+    [SerializeField] private Image narrationIcon;
 
     private Image imageRenderer; //should be a child of this object
     private GameObject textObject; //should be a child of the image renderer object
     private AudioSource audioSource;
+    private bool isNarrationClipPlaying = false;
+    
 
     //Awake is executed before the Start method
     private void Awake()
@@ -45,6 +51,7 @@ public class DigitalTooltip : InteractableObject
     // Start is called before the first frame update
     private void Start()
     {
+        narrationIcon.enabled = false;
         //Set icon sprite and disable text
         if (imageRenderer != null)
         {
@@ -89,6 +96,15 @@ public class DigitalTooltip : InteractableObject
             {
                 audioSource.PlayOneShot(interactClip);
             }
+            if (audioSource != null && narrationClip != null)
+            {
+                isNarrationClipPlaying = true;
+                audioSource.PlayOneShot(narrationClip);
+            }
+            if (isNarrationClipPlaying == true)
+            {
+                narrationIcon.enabled = true;
+            }
             return true;
         }
         return false;
@@ -110,10 +126,19 @@ public class DigitalTooltip : InteractableObject
             if (textObject != null)
             {
                 textObject.SetActive(false);
+            }            
+            if (audioSource != null && narrationClip != null)
+            {
+                audioSource.Stop();
+                isNarrationClipPlaying = false;                
             }
             if (audioSource != null && interactClip != null)
             {
                 audioSource.PlayOneShot(interactClip);
+            }
+            if (isNarrationClipPlaying == false)
+            {
+                narrationIcon.enabled = false;
             }
             return true;
         }
