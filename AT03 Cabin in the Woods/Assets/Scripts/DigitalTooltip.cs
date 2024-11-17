@@ -51,7 +51,8 @@ public class DigitalTooltip : InteractableObject
     // Start is called before the first frame update
     private void Start()
     {
-        narrationIcon.enabled = false;
+        audioSource.clip = narrationClip;
+        //narrationIcon.enabled = false;
         //Set icon sprite and disable text
         if (imageRenderer != null)
         {
@@ -96,11 +97,15 @@ public class DigitalTooltip : InteractableObject
             {
                 audioSource.PlayOneShot(interactClip);
             }
+            
+            //checks if there is an audiosource component and a narration audio clip to play and plays it
             if (audioSource != null && narrationClip != null)
             {
                 isNarrationClipPlaying = true;
                 audioSource.PlayOneShot(narrationClip);
             }
+
+            //enables hud element indicating that narration is playing
             if (isNarrationClipPlaying == true)
             {
                 narrationIcon.enabled = true;
@@ -126,7 +131,9 @@ public class DigitalTooltip : InteractableObject
             if (textObject != null)
             {
                 textObject.SetActive(false);
-            }            
+            }    
+            
+            //checks if there is an audio source and a narration clip and stops anything playing from the audio source
             if (audioSource != null && narrationClip != null)
             {
                 audioSource.Stop();
@@ -136,6 +143,8 @@ public class DigitalTooltip : InteractableObject
             {
                 audioSource.PlayOneShot(interactClip);
             }
+
+            //turns off the hud element indicating narration is playing if the narration stops playing
             if (isNarrationClipPlaying == false)
             {
                 narrationIcon.enabled = false;
