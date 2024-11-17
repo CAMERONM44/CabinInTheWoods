@@ -14,15 +14,13 @@ public class DigitalTooltip : InteractableObject
     [SerializeField] private Sprite background;
     [Tooltip("This is the audio clip that will play when notes are opened/closed.")]
     [SerializeField] private AudioClip interactClip;
-    [Tooltip("This is the audio clip that will play narration.")]
-    [SerializeField] private AudioClip narrationClip;
 
-    [SerializeField] private Image narrationIcon;
+    [SerializeField] private AudioClip narrationClip;     // the narration audio
+    [SerializeField] private GameObject narrationIcon;    // the icon to show when narration is playing
 
     private Image imageRenderer; //should be a child of this object
     private GameObject textObject; //should be a child of the image renderer object
     private AudioSource audioSource;
-    private bool isNarrationClipPlaying = false;
     
 
     //Awake is executed before the Start method
@@ -51,8 +49,6 @@ public class DigitalTooltip : InteractableObject
     // Start is called before the first frame update
     private void Start()
     {
-        audioSource.clip = narrationClip;
-        //narrationIcon.enabled = false;
         //Set icon sprite and disable text
         if (imageRenderer != null)
         {
@@ -70,6 +66,25 @@ public class DigitalTooltip : InteractableObject
         // Rotates the object so that it faces the same direction as the main camera.
         // Canvas's are inverted by default, so by facing the same direction the camera is facing it should appear correct to the player.
         transform.forward = Camera.main.transform.forward;
+
+        // Check if the audio source is playing and if the playing clip is the narration clip
+        if (audioSource.isPlaying && audioSource.clip == narrationClip)
+        {
+            // If the narration clip is playing from the audio source show the narration icon
+            narrationIcon.SetActive(true);
+        }
+        else
+        {
+            // If the narration clip is not playing hide the narration icon
+            narrationIcon.SetActive(false);
+        }
+    }
+
+    // assigns the narration clip to the audio source and plays the clip
+    public void PlayAudioClip()
+    {
+        audioSource.clip = narrationClip;
+        audioSource.Play();
     }
 
     /// <summary>
@@ -80,6 +95,9 @@ public class DigitalTooltip : InteractableObject
     {
         if (Interaction.Instance.CurrentTooltip != this)
         {
+            //runs the method established above to assign the clip and play it
+            PlayAudioClip();
+
             if (Interaction.Instance.CurrentTooltip != null)
             {
                 Interaction.Instance.CurrentTooltip.Deactivate();
@@ -96,19 +114,6 @@ public class DigitalTooltip : InteractableObject
             if (audioSource != null && interactClip != null)
             {
                 audioSource.PlayOneShot(interactClip);
-            }
-            
-            //checks if there is an audiosource component and a narration audio clip to play and plays it
-            if (audioSource != null && narrationClip != null)
-            {
-                isNarrationClipPlaying = true;
-                audioSource.PlayOneShot(narrationClip);
-            }
-
-            //enables hud element indicating that narration is playing
-            if (isNarrationClipPlaying == true)
-            {
-                narrationIcon.enabled = true;
             }
             return true;
         }
@@ -131,23 +136,15 @@ public class DigitalTooltip : InteractableObject
             if (textObject != null)
             {
                 textObject.SetActive(false);
-            }    
-            
-            //checks if there is an audio source and a narration clip and stops anything playing from the audio source
-            if (audioSource != null && narrationClip != null)
+            }
+            if (audioSource != null && interactClip != null)
             {
+                audioSource.clip = null;
                 audioSource.Stop();
-                isNarrationClipPlaying = false;                
             }
             if (audioSource != null && interactClip != null)
             {
                 audioSource.PlayOneShot(interactClip);
-            }
-
-            //turns off the hud element indicating narration is playing if the narration stops playing
-            if (isNarrationClipPlaying == false)
-            {
-                narrationIcon.enabled = false;
             }
             return true;
         }
