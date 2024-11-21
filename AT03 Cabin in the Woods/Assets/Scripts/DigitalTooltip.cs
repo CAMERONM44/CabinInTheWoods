@@ -137,6 +137,10 @@ public class DigitalTooltip : InteractableObject
             {
                 textObject.SetActive(false);
             }
+
+            //if there is an audio source component and an interaction audio clip attached when the tooltip is deactivated
+            //set the audiosource clip to be null so that the narration icon turns off when the tooltip is deactivated
+            //and stop the audio source playing
             if (audioSource != null && interactClip != null)
             {
                 audioSource.clip = null;
